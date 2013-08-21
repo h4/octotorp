@@ -1,0 +1,17 @@
+/**
+ * Главный файл приложения
+ */
+define([
+    'jquery',
+    'lodash',
+    'backbone',
+    'router'
+], function ($, _, Backbone, Router) {
+    var initialize = function() {
+        Router.initialize();
+    };
+
+    return {
+        initialize: initialize
+    };
+});
