@@ -3,7 +3,7 @@
  */
 define([
     'jquery',
-    'lodash',
+    'underscore',
     'backbone'
 ], function ($, _, Backbone) {
     var AppRouter;

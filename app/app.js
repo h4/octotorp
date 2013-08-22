@@ -3,7 +3,7 @@
  */
 define([
     'jquery',
-    'lodash',
+    'underscore',
     'backbone',
     'router'
 ], function ($, _, Backbone, Router) {
