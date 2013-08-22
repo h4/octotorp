@@ -7,20 +7,12 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
-        },
-        codebird: {
-            deps: [
-                'sha1'
-            ],
-            exports: 'Codebird'
         }
     },
     paths: {
         backbone: "../libs/backbone/backbone",
         bootstrap: "../libs/bootstrap/dist/js/bootstrap",
-        codebird: "../libs/codebird/codebird",
         handlebars: "../libs/require-handlebars-plugin/Handlebars",
-        sha1: "../libs/codebird/sha1",
         jquery: "../libs/jquery/jquery",
         underscore: "../libs/lodash/dist/lodash.underscore",
         hbs: "../libs/require-handlebars-plugin/hbs",

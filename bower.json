@@ -6,7 +6,6 @@
         "Mikhail Baranov <mikhail.baranov@gmail.com>"
     ],
     "description": "",
-    "main": "app.js",
     "license": "MIT",
     "private": true,
     "ignore": [
@@ -19,7 +18,6 @@
     "dependencies": {
         "bootstrap": "3.0.x",
         "backbone": "1.0.x",
-        "codebird": "2.4.x",
         "jquery": "2.0.x",
         "lodash": "1.3.x",
         "requirejs": "2.1.x",
