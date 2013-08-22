@@ -7,6 +7,12 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        codebird: {
+            deps: [
+                'sha1'
+            ],
+            exports: 'Codebird'
         }
     },
     paths: {
