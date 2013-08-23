@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test runner</title>
+
+    <link rel="stylesheet" type="text/css" href="../libs/jasmine/lib/jasmine-core/jasmine.css"/>
+    <script type="text/javascript" src="../libs/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script type="text/javascript" src="../libs/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../libs/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script type="text/javascript" src="../libs/jasmine-jquery/lib/jasmine-jquery.js"></script>
+    <script type="text/javascript" src="../libs/jasmine-sinon/lib/sinon-1.0.0/sinon-1.0.0.js"></script>
+    <script type="text/javascript" src="../libs/jasmine-sinon/lib/jasmine-sinon.js"></script>
+
+    <script type="text/javascript" src="../libs/requirejs/require.js"></script>
+
+    <script>
+        require.config({
+            baseUrl: "../app",
+            shim: {
+                backbone: {
+                    deps: [
+                        'underscore'
+                    ],
+                    exports: 'Backbone'
+                },
+                codebird: {
+                    deps: [
+                        'sha1'
+                    ],
+                    exports: 'Codebird'
+                }
+            },
+            paths: {
+                backbone: "../libs/backbone/backbone",
+                jquery: "../libs/jquery/jquery",
+                bootstrap: "../libs/bootstrap/dist/js/bootstrap",
+                codebird: "../libs/codebird/codebird",
+                handlebars: "../libs/require-handlebars-plugin/Handlebars",
+                sha1: "../libs/codebird/sha1",
+                underscore: "../libs/lodash/dist/lodash.underscore",
+                hbs: "../libs/require-handlebars-plugin/hbs",
+                json2: "../libs/require-handlebars-plugin/hbs/json2",
+                i18nprecompile: "../libs/require-handlebars-plugin/hbs/i18nprecompile"
+            },
+            hbs: {
+                disableI18n: true
+            }
+        });
+    </script>
+
+    <script>
+        require([
+            "../test/spec/models/authToken"
+        ], function (document) {
+            // Set up the HTML reporter - this is reponsible for
+            // aggregating the results reported by Jasmine as the
+            // tests and suites are executed.
+            jasmine.getEnv().addReporter(
+                    new jasmine.HtmlReporter()
+            );
+
+            // Run all the loaded test specs.
+            jasmine.getEnv().execute();
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

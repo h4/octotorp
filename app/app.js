@@ -2,12 +2,11 @@
  * Главный файл приложения
  */
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'router'
-], function ($, _, Backbone, Router) {
+    'router',
+    'sync'
+], function (Router, sync) {
     var initialize = function() {
+        sync.initialize();
         Router.initialize();
     };
 
