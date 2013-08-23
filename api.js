@@ -25,11 +25,26 @@ function getAuthHeader() {
 function handleRequest(req, res) {
     var oauthReq = https.request(authOptions, function(response) {
         response.on('data', function (chunk) {
-            res.writeHead(200, {'content-type': 'application/json'});
+            res.writeHead(response.statusCode, {'content-type': 'application/json'});
             res.write(chunk);
             res.end();
         });
     });
+
+    oauthReq.on('error', function(data) {
+        res.writeHead(500, {'content-type': 'application/json'});
+        var dataObj = {
+            errors: [
+                {
+                    code: 666,
+                    label: "Network error",
+                    message: "Unable to connect to auth server"
+                }
+            ]
+        };
+        res.write(JSON.stringify(dataObj));
+        res.end();
+    })
 
     oauthReq.write('grant_type=client_credentials');
     oauthReq.end();
