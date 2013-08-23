@@ -25,7 +25,10 @@ function getAuthHeader() {
 function handleRequest(req, res) {
     var oauthReq = https.request(authOptions, function(response) {
         response.on('data', function (chunk) {
-            res.writeHead(response.statusCode, {'content-type': 'application/json'});
+            res.writeHead(response.statusCode, {
+                'access-control-allow-origin': '*',
+                'content-type': 'application/json'
+            });
             res.write(chunk);
             res.end();
         });
