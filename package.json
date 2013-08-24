@@ -1,0 +1,25 @@
+{
+  "name": "octotorp",
+  "version": "0.0.0",
+  "description": "\"Twitter search API wrapper\"",
+  "main": "api.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "vow": "~0.3.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/h4/octotorp.git"
+  },
+  "author": "Mikhail Baranov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h4/octotorp/issues"
+  }
+}
