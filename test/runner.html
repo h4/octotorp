@@ -23,21 +23,13 @@
                         'underscore'
                     ],
                     exports: 'Backbone'
-                },
-                codebird: {
-                    deps: [
-                        'sha1'
-                    ],
-                    exports: 'Codebird'
                 }
             },
             paths: {
                 backbone: "../libs/backbone/backbone",
                 jquery: "../libs/jquery/jquery",
                 bootstrap: "../libs/bootstrap/dist/js/bootstrap",
-                codebird: "../libs/codebird/codebird",
                 handlebars: "../libs/require-handlebars-plugin/Handlebars",
-                sha1: "../libs/codebird/sha1",
                 underscore: "../libs/lodash/dist/lodash.underscore",
                 hbs: "../libs/require-handlebars-plugin/hbs",
                 json2: "../libs/require-handlebars-plugin/hbs/json2",
@@ -51,7 +43,7 @@
 
     <script>
         require([
-            "../test/spec/models/authToken"
+
         ], function (document) {
             // Set up the HTML reporter - this is reponsible for
             // aggregating the results reported by Jasmine as the

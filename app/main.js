@@ -25,7 +25,15 @@ require.config({
 });
 
 require([
-    'app'
-], function(App) {
+    'app',
+    'models/tweet'
+], function(App, TweetModel) {
     App.initialize();
+
+    setTimeout(function() {
+        var tweet = new TweetModel();
+
+        tweet.fetch()
+    }, 2000);
+
 });

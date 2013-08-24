@@ -2,11 +2,9 @@
  * Главный файл приложения
  */
 define([
-    'router',
-    'sync'
-], function (Router, sync) {
+    'router'
+], function (Router) {
     var initialize = function() {
-        sync.initialize();
         Router.initialize();
     };
 
