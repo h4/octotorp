@@ -7,15 +7,17 @@ define([
         beforeEach(function() {
             this.tweet = new TweetModel({}, {url: "/"});
             this.server = sinon.fakeServer.create();
+            this.fixture = {"id": 1, "user": {"id": 1}};
             this.server.respondWith(
                 "GET",
                 "/",
                 [
                     200,
                     {"Content-Type": "application/json"},
-                    '{"id": 1, "user": {"id": 1}}'
+                    JSON.stringify(this.fixture)
                 ]
             );
+            this.eventSpy = sinon.spy();
         });
 
         afterEach(function() {
@@ -27,10 +29,19 @@ define([
             expect(_.isFunction(this.tweet.set)).toBe(true);
         });
 
-        it("Must filter data", function() {
+        it("should filter data", function() {
             this.tweet.fetch();
             this.server.respond();
             expect(typeof this.tweet.get("user")).toBe("number");
+        });
+
+        it("should sent user object", function() {
+            this.tweet.on('addUser', this.eventSpy);
+            this.tweet.fetch();
+            this.server.respond();
+
+            expect(this.eventSpy.called).toBeTruthy();
+            expect(this.eventSpy.calledWith(this.fixture.user)).toBeTruthy();
         });
     });
 });
