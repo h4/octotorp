@@ -16,7 +16,6 @@ define([
                     '{"id": 1, "user": {"id": 1}}'
                 ]
             );
-            this.eventSpy = sinon.spy();
         });
 
         afterEach(function() {
