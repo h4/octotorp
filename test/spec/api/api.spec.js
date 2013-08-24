@@ -6,13 +6,13 @@ var server;
 var client = http.request;
 var sockets = [];
 
-xdescribe("Server test", function() {
+describe("Server test", function() {
     beforeEach(function() {
         server = http.createServer();
         server.on('connection', function(socket) {
             sockets.push(socket);
         });
-        server.on('request', api.handleRequest);
+        server.on('request', api.handle);
         server.listen(8081);
     });
 
@@ -29,7 +29,7 @@ xdescribe("Server test", function() {
             port: '8081',
             path: '/'
         }, function(response) {
-            expect(response.statusCode).toBe(200);
+            expect(response.statusCode).toBe(400);
             done();
         }).end();
     });
