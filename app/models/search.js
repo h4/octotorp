@@ -3,7 +3,7 @@ define([
     'collections/tweets'
 ], function (Backbone, TweetsCollection) {
     var SearchModel = Backbone.Model.extend({
-        baseUrl: 'http://localhost:8080/',
+        baseUrl: '/api',
         url: function() {
             return this.baseUrl + "?q=" + this.query.q;
         },
