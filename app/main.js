@@ -20,7 +20,8 @@ require.config({
         i18nprecompile: "../libs/require-handlebars-plugin/hbs/i18nprecompile"
     },
     hbs: {
-        disableI18n: true
+        disableI18n: true,
+        helperPathCallback: function(name) {return 'templates/helpers/' + name;}
     }
 });
 
