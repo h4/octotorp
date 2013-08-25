@@ -8,8 +8,8 @@ define([
             return this.baseUrl + "?q=" + this.query.q;
         },
 
-        defaults: {
-            tweets: new TweetsCollection()
+        initialize: function() {
+            this.set('tweets', new TweetsCollection());
         },
 
         parse: function(data) {
