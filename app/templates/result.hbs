@@ -1,11 +1,19 @@
 <h2>Поиск по хеш-тегу #{{{query}}}</h2>
 
 {{#each tweets}}
-    <div class="tweet">{{text}}, {{user}}</div>
+    <div class="tweet panel panel-primary">
+        <div class="panel-heading">
+            <span class="badge">@{{user.screen_name}}</span> {{user.name}}
+        </div>
+        <div class="panel-body">
+            <div class="lead">{{text}}</div>
+        </div>
+        <div class="panel-footer">{{created_at}}</div>
+    </div>
 {{else}}
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Загружаеются твиты</h3>
+            <h3 class="panel-title">Загружаются твиты</h3>
         </div>
         <div class="panel-body">
             <div class="progress progress-striped active">
