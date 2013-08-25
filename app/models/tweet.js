@@ -13,7 +13,6 @@ define([
         parse: function(data) {
             var user = data.user;
             this.trigger('addUser', user);
-            data.user = user.id;
 
             return data;
         }

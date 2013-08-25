@@ -29,12 +29,6 @@ define([
             expect(_.isFunction(this.tweet.set)).toBe(true);
         });
 
-        it("should filter data", function() {
-            this.tweet.fetch();
-            this.server.respond();
-            expect(typeof this.tweet.get("user")).toBe("number");
-        });
-
         it("should sent user object", function() {
             this.tweet.on('addUser', this.eventSpy);
             this.tweet.fetch();
