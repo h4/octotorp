@@ -5,10 +5,10 @@ define([
 ], function (Backbone, SearchModel, template) {
     var ResultView = Backbone.View.extend({
         el: 'div.result',
-        model: new SearchModel(),
 
         initialize: function(options) {
             this.options = options;
+            this.model = new SearchModel();
             this.model.getTweets({
                 q: this.options.query
             });
