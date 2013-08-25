@@ -2,10 +2,19 @@
  * Главный файл приложения
  */
 define([
-    'router'
-], function (Router) {
+    'router',
+    'views/layout',
+    'views/search'
+], function (Router, LayoutView, SearchView) {
     var initialize = function() {
-        Router.initialize();
+        var layout = new LayoutView();
+        var search = new SearchView();
+        layout.render().$el.appendTo($('body'));
+        search.render().$el.appendTo(layout.$('.search'));
+
+        Router.initialize({
+            layoutView: layout
+        });
     };
 
     return {
