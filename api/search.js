@@ -34,7 +34,7 @@ function getOptions(q, token) {
     return {
         method: 'GET',
         host: 'api.twitter.com',
-        path: '/1.1/search/tweets.json?q=' + q,
+        path: '/1.1/search/tweets.json?q=' + encodeURIComponent(q),
         headers: {
             Authorization: 'Bearer ' + token
         }
@@ -63,6 +63,8 @@ function getTweets(q, callback) {
     });
 
     function onRequest(response) {
+        console.log(response.statusCode);
+
         var data = '';
         response.on('data', function(chunk) {
             data += chunk;
