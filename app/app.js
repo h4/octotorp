@@ -15,6 +15,10 @@ define([
         Router.initialize({
             layoutView: layout
         });
+
+        Backbone.on("domchange:title", function(title) {
+            $(document).attr('title', title);
+        });
     };
 
     return {

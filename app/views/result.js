@@ -11,7 +11,8 @@ define([
             this.options = options;
             this.model = new SearchModel();
             this.model.getTweets(this.formatQuery());
-            this.model.on('sync', this.render, this)
+            this.model.on('sync', this.render, this);
+            Backbone.trigger("domchange:title", this.options.query + " — Поиск по хештегу" );
         },
 
         formatQuery: function() {
