@@ -5,10 +5,14 @@ define([
     describe("Search model test", function() {
         beforeEach(function() {
             this.search = new SearchModel();
+            this.search.url = '/?q=nodejs';
             this.fixture = {
                 "statuses": [
                     {
                         "id": 1,
+                        "user": {}
+                    }, {
+                        "id": 2,
                         "user": {}
                     }, {
                         "id": 3,
