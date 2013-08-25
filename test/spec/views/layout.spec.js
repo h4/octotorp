@@ -17,5 +17,14 @@ define([
         it('rendered a div.main-container', function() {
             expect(this.view.render().$el).toBe('div.main-container');
         });
+
+        it('should prevent clicks on link', function() {
+            this.view.render();
+            var spyEvent = spyOnEvent(this.view.$('a'), 'click');
+            this.view.$('a').click();
+            expect(spyEvent).toHaveBeenTriggered();
+            expect(spyEvent).toHaveBeenPrevented();
+            expect(spyEvent).toHaveBeenStopped();
+        });
     });
 });
