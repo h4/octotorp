@@ -36,7 +36,8 @@
                 i18nprecompile: "../libs/require-handlebars-plugin/hbs/i18nprecompile"
             },
             hbs: {
-                disableI18n: true
+                disableI18n: true,
+                helperPathCallback: function(name) {return 'templates/helpers/' + name;}
             }
         });
     </script>
@@ -51,7 +52,9 @@
             '../test/spec/views/layout.spec',
             '../test/spec/views/index.spec',
             '../test/spec/views/result.spec',
-            '../test/spec/views/search.spec'
+            '../test/spec/views/search.spec',
+            '../test/spec/helpers/ruDateTime.spec',
+            '../test/spec/helpers/parseHashtag.spec'
         ], function () {
             // Set up the HTML reporter - this is reponsible for
             // aggregating the results reported by Jasmine as the
