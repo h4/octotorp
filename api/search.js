@@ -63,8 +63,6 @@ function getTweets(q, callback) {
     });
 
     function onRequest(response) {
-        console.log(response.statusCode);
-
         var data = '';
         response.on('data', function(chunk) {
             data += chunk;
