@@ -1,18 +1,28 @@
 define([
+    'underscore',
     'backbone',
     'models/search',
     'hbs!templates/result'
-], function (Backbone, SearchModel, template) {
+], function (_, Backbone, SearchModel, template) {
     var ResultView = Backbone.View.extend({
         el: 'div.result',
 
         initialize: function(options) {
             this.options = options;
             this.model = new SearchModel();
-            this.model.getTweets({
-                q: this.options.query
-            });
+            this.model.getTweets(this.formatQuery());
             this.model.on('sync', this.render, this)
+        },
+
+        formatQuery: function() {
+            var query = this.options.query;
+
+            if (query.indexOf('#') !== 0) {
+                query = "#" + query;
+            }
+            return {
+                q: encodeURIComponent(query)
+            }
         },
 
         render: function(model) {
