@@ -14,7 +14,7 @@ define([
 
         parse: function(data) {
             this.get('tweets').add(data, {parse: true});
-            data.search_metadata.query = decodeURIComponent(data.search_metadata.query);
+            data.search_metadata.query = decodeURIComponent(data.search_metadata.query).replace(/^#/, '');
 
             return data.search_metadata
         },
