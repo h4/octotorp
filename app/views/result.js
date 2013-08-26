@@ -31,6 +31,7 @@ define([
             if (model) {
                 data = model.toJSON();
                 data.tweets = data.tweets.toJSON();
+                data.showResults = true;
             } else {
                 data = this.options;
             }

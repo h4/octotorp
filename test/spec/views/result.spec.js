@@ -40,6 +40,18 @@ define([
             expect(this.view.render(this.view.model).$el).toContainText(modelFixture.query);
             expect(this.view.render(this.view.model).$('.tweet').length).toEqual(tweetsFixture.length);
         });
+
+        it('should show notification when result is empty', function() {
+            var modelFixture = {
+                query: "nodejs"
+            };
+            var tweetsFixture = [];
+            this.view.model.set(modelFixture);
+            this.view.model.get('tweets').set(tweetsFixture);
+            expect(this.view.render(this.view.model).$el).toContain("div.panel");
+            expect(this.view.render(this.view.model).$el).toContain("div.panel-danger");
+            expect(this.view.render(this.view.model).$('.panel')).toContainText("Ничего не найдено");
+        });
     });
 
     return {};

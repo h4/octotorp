@@ -28,7 +28,7 @@ describe("API auth", function() {
     });
 
     it("getTweets should return error when query is empty", function(done) {
-        var query = ""
+        var query = "";
         getTweets(query, function(result) {
             var code = result.code;
 
